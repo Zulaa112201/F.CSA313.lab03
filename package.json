@@ -1,0 +1,25 @@
+{
+  "name": "f.csa313.lab03",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zulaa112201/F.CSA313.lab03.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Zulaa112201/F.CSA313.lab03/issues"
+  },
+  "homepage": "https://github.com/Zulaa112201/F.CSA313.lab03#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
