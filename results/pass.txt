@@ -1,0 +1,131 @@
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: slo-test.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 20 max VUs, 1m30s max duration (incl. graceful stop):
+              * default: 20 looping VUs for 1m0s (gracefulStop: 30s)
+
+
+running (0m01.0s), 20/20 VUs, 0 complete and 0 interrupted iterations
+default   [   2% ] 20 VUs  0m01.0s/1m0s
+
+running (0m02.0s), 20/20 VUs, 20 complete and 0 interrupted iterations
+default   [   3% ] 20 VUs  0m02.0s/1m0s
+
+running (0m03.0s), 20/20 VUs, 40 complete and 0 interrupted iterations
+default   [   5% ] 20 VUs  0m03.0s/1m0s
+
+running (0m04.0s), 20/20 VUs, 54 complete and 0 interrupted iterations
+default   [   7% ] 20 VUs  0m04.0s/1m0s
+
+running (0m05.0s), 20/20 VUs, 60 complete and 0 interrupted iterations
+default   [   8% ] 20 VUs  0m05.0s/1m0s
+
+running (0m06.0s), 20/20 VUs, 80 complete and 0 interrupted iterations
+default   [  10% ] 20 VUs  0m06.0s/1m0s
+
+running (0m07.0s), 20/20 VUs, 100 complete and 0 interrupted iterations
+default   [  12% ] 20 VUs  0m07.0s/1m0s
+
+running (0m08.0s), 20/20 VUs, 114 complete and 0 interrupted iterations
+default   [  13% ] 20 VUs  0m08.0s/1m0s
+
+running (0m09.0s), 20/20 VUs, 121 complete and 0 interrupted iterations
+default   [  15% ] 20 VUs  0m09.0s/1m0s
+
+running (0m10.0s), 20/20 VUs, 140 complete and 0 interrupted iterations
+default   [  17% ] 20 VUs  0m10.0s/1m0s
+
+running (0m11.0s), 20/20 VUs, 160 complete and 0 interrupted iterations
+default   [  18% ] 20 VUs  0m11.0s/1m0s
+
+running (0m12.0s), 20/20 VUs, 173 complete and 0 interrupted iterations
+default   [  20% ] 20 VUs  0m12.0s/1m0s
+
+running (0m13.0s), 20/20 VUs, 182 complete and 0 interrupted iterations
+default   [  22% ] 20 VUs  0m13.0s/1m0s
+
+running (0m14.0s), 20/20 VUs, 200 complete and 0 interrupted iterations
+default   [  23% ] 20 VUs  0m14.0s/1m0s
+
+running (0m15.0s), 20/20 VUs, 220 complete and 0 interrupted iterations
+default   [  25% ] 20 VUs  0m15.0s/1m0s
+
+running (0m16.0s), 20/20 VUs, 235 complete and 0 interrupted iterations
+default   [  27% ] 20 VUs  0m16.0s/1m0s
+
+running (0m17.0s), 20/20 VUs, 243 complete and 0 interrupted iterations
+default   [  28% ] 20 VUs  0m17.0s/1m0s
+
+running (0m18.0s), 20/20 VUs, 260 complete and 0 interrupted iterations
+default   [  30% ] 20 VUs  0m18.0s/1m0s
+
+running (0m19.0s), 20/20 VUs, 280 complete and 0 interrupted iterations
+default   [  32% ] 20 VUs  0m19.0s/1m0s
+
+running (0m20.0s), 20/20 VUs, 298 complete and 0 interrupted iterations
+default   [  33% ] 20 VUs  0m20.0s/1m0s
+
+running (0m21.0s), 20/20 VUs, 306 complete and 0 interrupted iterations
+default   [  35% ] 20 VUs  0m21.0s/1m0s
+
+
+  █ THRESHOLDS 
+
+    checks
+    ✓ 'rate>0.90' rate=98.51%
+
+    http_req_duration{name:cart}
+    ✓ 'p(95)<200' p(95)=11.23ms
+
+    http_req_duration{name:report}
+    ✓ 'p(95)<450' p(95)=397.41ms
+
+    http_req_failed{name:pay}
+    ✓ 'rate<0.08' rate=4.46%
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 1008   46.589402/s
+    checks_succeeded...: 98.51% 993 out of 1008
+    checks_failed......: 1.48%  15 out of 1008
+
+    ✓ cart 200
+    ✓ report 200
+    ✗ pay 200
+      ↳  95% — ✓ 321 / ✗ 15
+
+    HTTP
+    http_req_duration..............: avg=105.1ms  min=0s    med=1.57ms   max=415.83ms p(90)=348.01ms p(95)=381.91ms
+      { expected_response:true }...: avg=106.67ms min=0s    med=1.59ms   max=415.83ms p(90)=348.74ms p(95)=382.29ms
+      { name:cart }................: avg=2.16ms   min=0s    med=1.19ms   max=21.19ms  p(90)=2.65ms   p(95)=11.23ms 
+      { name:report }..............: avg=313.21ms min=203ms med=316.28ms max=415.83ms p(90)=392.28ms p(95)=397.41ms
+    http_req_failed................: 1.48%  15 out of 1012
+      { name:pay }.................: 4.46%  15 out of 336
+    http_reqs......................: 1012   46.774281/s
+
+    EXECUTION
+    iteration_duration.............: avg=1.31s    min=1.2s  med=1.32s    max=1.44s    p(90)=1.39s    p(95)=1.4s    
+    iterations.....................: 320    14.790286/s
+    vus............................: 20     min=20         max=20
+    vus_max........................: 20     min=20         max=20
+
+    NETWORK
+    data_received..................: 254 kB 12 kB/s
+    data_sent......................: 90 kB  4.2 kB/s
+
+
+
+
+running (0m21.6s), 00/20 VUs, 320 complete and 29 interrupted iterations
+default ✗ [  36% ] 20 VUs  0m21.6s/1m0s
+time="2026-09-23T08:04:32+08:00" level=error msg="test run was aborted because k6 received a 'interrupt' signal"
